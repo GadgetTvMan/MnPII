@@ -1,0 +1,11 @@
+author: GadgetTvMan
+name: Melon n Pumpkin interest increaser
+main: gadgettvman.github.io.MnPII.MnPII
+version: 1.0.0
+
+url: http://gadgettvman.github.io/Cords-of-Death/
+startup: postworld
+
+permissions:
+  MnPII.FUN:
+    default: true
