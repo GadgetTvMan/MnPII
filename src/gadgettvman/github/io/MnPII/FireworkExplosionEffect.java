@@ -11,7 +11,7 @@ import org.bukkit.World;
 /**
  * FireworkEffectPlayer v1.0
  * 
- * FireworkEffectPlayer provides a thread-safe and (reasonably) version independant way to instantly explode a FireworkEffect at a given location.
+ * FireworkEffectPlayer provides a thread-safe and (reasonably) version independent way to instantly explode a FireworkEffect at a given location.
  * You are welcome to use, redistribute, modify and destroy your own copies of this source with the following conditions:
  * 
  * 1. No warranty is given or implied.
@@ -50,7 +50,7 @@ public class FireworkExplosionEffect {
 	 * @throws Exception
 	 */
 	public void playFirework(World world, Location loc, FireworkEffect fe) throws Exception {
-		// Bukkity load (CraftFirework)
+		// Bukkit load (CraftFirework)
 		Firework fw = (Firework) world.spawn(loc, Firework.class);
 		// the net.minecraft.server.World
 		Object nms_world = null;
@@ -66,7 +66,7 @@ public class FireworkExplosionEffect {
 		// invoke with no arguments
 		nms_world = world_getHandle.invoke(world, (Object[]) null);
 		nms_firework = firework_getHandle.invoke(fw, (Object[]) null);
-		// null checks are fast, so having this seperate is ok
+		// null checks are fast, so having this separate is ok
 		if(nms_world_broadcastEntityEffect == null) {
 			// get the method of the nms_world
 			nms_world_broadcastEntityEffect = getMethod(nms_world.getClass(), "broadcastEntityEffect");
@@ -85,7 +85,7 @@ public class FireworkExplosionEffect {
 		// set the meta
 		fw.setFireworkMeta(data);
 		/*
-		 * Finally, we broadcast the entity effect then kill our fireworks object
+		 * Finally, we broadcast the entity effect then remove our fireworks object
 		 */
 		// invoke with arguments
 		nms_world_broadcastEntityEffect.invoke(nms_world, new Object[] {nms_firework, (byte) 17});
